@@ -4,7 +4,7 @@ import pickle
 app = Flask(__name__)
 model_name = "facebook/bart-large-cnn"
 tokenizer = BartTokenizer.from_pretrained(model_name)
-model = pickle.load(open("bart.pkl","rb"))
+model = BartForConditionalGeneration.from_pretrained(model_name)
 @app.route('/')
 def home():
     return render_template('index.html')
